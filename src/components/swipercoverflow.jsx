@@ -66,13 +66,13 @@ const ImageSlider = () => {
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={1}
+            slidesPerView={2}
             coverflowEffect={{
               rotate: 50,
               stretch: 0,
-              depth: 100,
-              modifier: 2,
-              scale: 1.2,
+              depth: 30,
+              modifier: 1,
+              scale: 0.9,
               slideShadows: true,
             }}
             
@@ -84,9 +84,9 @@ const ImageSlider = () => {
                 slidesPerView: 2,
                 coverflowEffect: {
                   rotate: 40,
-                  depth: 150,
+                  depth: 50,
                   modifier: 1,
-                  scale: 1.15,
+                  scale: 0.5,
                   slideShadows: true,
                 },
               },
@@ -94,9 +94,9 @@ const ImageSlider = () => {
                 slidesPerView: 4,
                 coverflowEffect: {
                   rotate: 10,
-                  depth: 120,
+                  depth: 20,
                   modifier: 1,
-                  scale: 0.9,
+                  scale: 0.6,
                   slideShadows: true,
                 },
               },

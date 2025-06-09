@@ -284,9 +284,9 @@ const HeroSection = () => {
 
             {/* Store Images */}
             <div className="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end gap-2 flex-wrap mt-3 store-images">
-              <img src={appstore} alt="App Store" className="img-fluid rounded store-img" />
-              <img src={playstore} alt="Play Store" className="img-fluid rounded store-img" />
-              <img src={gotolive} alt="Go To Live" className="img-fluid rounded store-img" />
+              <img src={appstore} alt="App Store" className="img-fluids rounded store-img" />
+              <img src={playstore} alt="Play Store" className="img-fluids rounded store-img" />
+              <img src={gotolive} alt="Go To Live" className="img-fluids rounded store-img" />
             </div>
           </div>
         </div>

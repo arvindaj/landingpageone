@@ -137,7 +137,7 @@ const Skillsliders = () => {
   };
 
   return (
-    <div className="container-fluid skillslider min-vh-100" style={{ overflow: "hidden" }}>
+    <div className="container-fluid skillslider " style={{ overflow: "hidden" }}>
 
       <div className="container my-5">
         <div className="row justify-content-center text-center text-md-start">
