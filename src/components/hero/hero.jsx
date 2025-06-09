@@ -48,7 +48,7 @@ const HeroSection = () => {
               <img
                 src={skillorea}
                 alt="Skillorea Logo"
-                className="img-fluid mx-5 py-3"
+                className="img-fluids mx-5 py-3"
                 style={{ maxWidth: '200px', height: 'auto' }}
               />
             </a>
