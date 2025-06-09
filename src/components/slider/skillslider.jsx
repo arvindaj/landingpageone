@@ -183,7 +183,7 @@ const Skillsliders = () => {
                         className="card h-100 border-0 mobile-card"
                         style={{
                           backgroundColor: "transparent",
-                          transition: "all 0.2s ease",
+                          transition: "all 0.5s ease",
                           transform: "translateY(0)",
                           flex: 1
                         }}

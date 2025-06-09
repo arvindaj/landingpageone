@@ -20,7 +20,7 @@ const images = [
   { id: 8, src: leader8, alt: 'Leader 8' },
 ];
 
-const Cartoon = () => {
+const BootstrapFourCardCarousel = () => {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
@@ -28,10 +28,10 @@ const Cartoon = () => {
   return (
     <div className="container-fluid ">
       <Swiper
-        modules={[ Autoplay]}
+        modules={[Autoplay]}
         spaceBetween={10}
         slidesPerView={1}
-        
+
         autoplay={{
           delay: 1500,
           disableOnInteraction: false,
@@ -40,7 +40,7 @@ const Cartoon = () => {
         }}
         loop={true}
         speed={600}
-        className="mySwiper"
+        
         breakpoints={{
           0: { slidesPerView: 1, spaceBetween: 10 },
           576: { slidesPerView: 2, spaceBetween: 15 },
@@ -48,35 +48,39 @@ const Cartoon = () => {
           1200: { slidesPerView: 4, spaceBetween: 30 },
         }}
       >
-        {images.map((image) => (
-          <SwiperSlide key={image.id}>
+        {images.map((img, idx) => (
+          <SwiperSlide key={idx}>
             <div className="d-flex justify-content-center align-items-center">
               <img
-                src={image.src}
-                alt={image.alt}
+                src={img.src}
+                alt={`leader-${idx}`}
                 className="img-fluid rounded cartoon-image"
-                style={{ maxHeight: '250px', objectFit: 'cover', width: '100%' }}
+                style={{ objectFit: 'cover', width: '60px', Height: '200px' }}
               />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
       <style jsx>{`
-     
         .swiper-slide {
           display: flex;
           align-items: center;
         }
         .cartoon-image {
+         width: 70px;
+         height: auto;
+          transform: scale(0.8);
           transition: transform 0.3s ease;
         }
-        .cartoon-image:hover {
-          transform: scale(1.5);
+        .swiper-slide-active .cartoon-image {
+          transform: scale(1.0);
+          z-index: 14;
+          maxheight: 100%; !important
         }
-      
-      `}</style>
+      `}
+      </style>
     </div>
   );
 };
 
-export default Cartoon;
+export default BootstrapFourCardCarousel;
