@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/home/home';
+
 function App() {
   // Add this useEffect to scroll to top on page load/reload
   useEffect(() => {

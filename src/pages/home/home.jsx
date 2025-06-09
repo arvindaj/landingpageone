@@ -9,11 +9,9 @@ import appstore from "../../assets/img/appstore.png";
 import playstore from "../../assets/img/playstore.png";
 import gotolive from "../../assets/img/gotolive.png";
 import doublearrow from "../../assets/img/doublearrow.png";
-
 import one from "../../assets/img/one.png";
 import bluebg from "../../assets/img/bluebg.png";
-import "./LandingPage.css";
-import BootstrapFourCardCarousel from '../../components/cartoon';
+import "./landingpage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import worshop from "../../assets/img/worshop.png"
@@ -26,6 +24,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/autoplay";
 import Skillsliders from '../../components/slider/skillslider';
+import Cartoon from '../../components/cartoon';
 
 
 
@@ -456,7 +455,7 @@ const LandingPage = () => {
 
                             {/* Image Slider */}
                             <div className="col-4 col-lg-4 d-flex flex-column flex-sm-row justify-content-start justify-content-sm-start ms-3 ms-lg-0 ">
-                                <BootstrapFourCardCarousel />
+                                <Cartoon />
                             </div>
 
                             {/* Description + Buttons */}

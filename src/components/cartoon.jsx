@@ -20,7 +20,7 @@ const images = [
   { id: 8, src: leader8, alt: 'Leader 8' },
 ];
 
-const BootstrapFourCardCarousel = () => {
+const Cartoon = () => {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
@@ -79,4 +79,4 @@ const BootstrapFourCardCarousel = () => {
   );
 };
 
-export default BootstrapFourCardCarousel;
+export default Cartoon;
