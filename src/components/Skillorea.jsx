@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import screenone from "../assets/img/screen1.png";
@@ -29,7 +29,7 @@ const cardData = [
   {
     title: "Mobile Development",
     description: "Cross-platform mobile apps with native performance and modern UI/UX design.",
-    image: screenthree,
+    image: screentree,
     badge: "Trending",
     category: "Mobile",
   },
@@ -82,13 +82,19 @@ const getCardsPerSlide = () => {
 
 const CardSlider = () => {
   const [cardsPerSlide, setCardsPerSlide] = React.useState(getCardsPerSlide());
+  const swiperRef = useRef(null); // Reference to Swiper instance
 
-  // Update cards per slide on window resize
-  React.useEffect(() => {
+  // Update cards per slide and reinitialize Swiper on window resize
+  useEffect(() => {
     const handleResize = () => {
-      setCardsPerSlide(getCardsPerSlide());
+      const newCardsPerSlide = getCardsPerSlide();
+      setCardsPerSlide(newCardsPerSlide);
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.update(); // Update Swiper on resize
+      }
     };
     window.addEventListener("resize", handleResize);
+    handleResize(); // Initial call to set correct layout
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -136,6 +142,7 @@ const CardSlider = () => {
             spaceBetween={0}
             className="carousel-container"
             style={{ overflow: "hidden" }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance
           >
             {slides.map((slide, index) => (
               <SwiperSlide key={index}>
@@ -172,7 +179,7 @@ const CardSlider = () => {
                             alt={card.title}
                             style={{
                               width: "100%",
-                              height: "250px",
+                              height: cardsPerSlide === 1 ? "200px" : cardsPerSlide === 2 ? "220px" : "250px",
                               objectFit: "contain",
                               transition: "transform 0.3s ease",
                             }}
@@ -205,6 +212,7 @@ const CardSlider = () => {
               zIndex: 10,
               border: "none",
               background: "none",
+              display: cardsPerSlide === 1 ? "block" : "block",
             }}
           >
             <div className="bg-dark rounded-circle p-2 shadow">
@@ -228,6 +236,7 @@ const CardSlider = () => {
               zIndex: 10,
               border: "none",
               background: "none",
+              display: cardsPerSlide === 1 ? "block" : "block",
             }}
           >
             <div className="bg-dark rounded-circle p-2 shadow">
@@ -375,26 +384,35 @@ const CardSlider = () => {
 
           /* Mobile Optimizations */
           @media (max-width: 576px) {
-            .carousel-control {
-              display: block !important;
+            .carousel-container {
+              padding: 0 10px;
             }
-            
+
             .card {
               margin: 0 auto;
-              max-width: 95%;
+              max-width: 100%;
             }
-            
+
             .card-img-top {
               height: 200px !important;
+              object-fit: contain;
             }
-            
+
             .carousel-control .bg-dark {
-              padding: 8px !important;
+              padding: 6px !important;
             }
-            
+
             .carousel-control svg {
-              width: 16px !important;
-              height: 16px !important;
+              width: 14px !important;
+              height: 14px !important;
+            }
+
+            .carousel-control-prev {
+              left: -5px !important;
+            }
+
+            .carousel-control-next {
+              right: -5px !important;
             }
           }
 
@@ -402,6 +420,15 @@ const CardSlider = () => {
           @media (min-width: 577px) and (max-width: 768px) {
             .card-img-top {
               height: 220px !important;
+              object-fit: contain;
+            }
+
+            .carousel-control-prev {
+              left: 0;
+            }
+
+            .carousel-control-next {
+              right: 0;
             }
           }
 
@@ -409,6 +436,7 @@ const CardSlider = () => {
           @media (min-width: 769px) {
             .card-img-top {
               height: 250px !important;
+              object-fit: contain;
             }
           }
 
@@ -416,6 +444,12 @@ const CardSlider = () => {
           .swiper-button-disabled {
             opacity: 0.3;
             cursor: not-allowed;
+          }
+
+          .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         `}
       </style>
