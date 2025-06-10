@@ -94,7 +94,7 @@ const Skillsliders = () => {
   const getCardsPerSlide = () => {
     if (window.innerWidth <= 320) return 1; // 1 card on very small mobile (320px)
     if (window.innerWidth <= 576) return 1; // 1 card on mobile (xs)
-    if (window.innerWidth <= 768) return 3; // 2 cards on small tablet
+    if (window.innerWidth <= 768) return 2; // 2 cards on small tablet
     if (window.innerWidth <= 992) return 3; // 3 cards on medium screens
     return 5; // 5 cards on desktop (lg and above)
   };
