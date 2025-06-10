@@ -63,7 +63,7 @@ const HeroSection = () => {
                 transition: 'all 0.3s ease',
               }}
             >
-              Loginaj
+              Login
             </a>
           </div>
         </div>
