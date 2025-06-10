@@ -20,6 +20,7 @@ import SwiperCoverflow from '../../components/swipercoverflow';
 import "swiper/css/autoplay";
 import Skillsliders from '../../components/slider/skillslider';
 import HeroSection from '../../components/hero/hero';
+import Skillslider from '../../components/slider/skillslider';
 
 
 
@@ -442,7 +443,7 @@ const LandingPage = () => {
 
             </section>
 
-            <Skillsliders />
+            <Skillslider />
 
             <SwiperCoverflow />
 
