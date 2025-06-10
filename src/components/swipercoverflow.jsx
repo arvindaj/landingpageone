@@ -62,7 +62,7 @@ const ImageSlider = () => {
         </div>
         <div className="col-12 col-md-10 col-lg-8 p-lg-5 p-5 position-relative">
           <Swiper
-            modules={[ Pagination, Autoplay, EffectCoverflow]}
+            modules={[  Autoplay, EffectCoverflow]}
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
@@ -76,7 +76,7 @@ const ImageSlider = () => {
               slideShadows: true,
             }}
             
-            pagination={{ clickable: true }}
+            
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             loop={true}
             breakpoints={{

@@ -457,12 +457,11 @@ const LandingPage = () => {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    minHeight: '514px',
-                    maxHeight: '600px' // Add this
+                    minHeight: '360px',
+                    maxHeight: '500px' // Add this
                 }}
             >
                 {/* Optional overlay for better text visibility */}
-
 
                 {/* Footer Content */}
                 <div className="container position-relative mt-lg-5 pt-4 mb-lg-3 " style={{ zIndex: 1 }}>
