@@ -13,6 +13,16 @@ const cardData = [
   { title: "Entertainment", image: entainment, category: "entertainment" },
   { title: "Infography", image: infography, category: "infography" },
   { title: "Point", image: point, category: "point" },
+    { title: "Workshop", image: worshop, category: "workshop" },
+  { title: "Quizzer", image: quizzer, category: "quizzer" },
+  { title: "Entertainment", image: entainment, category: "entertainment" },
+  { title: "Infography", image: infography, category: "infography" },
+  { title: "Point", image: point, category: "point" },
+    { title: "Workshop", image: worshop, category: "workshop" },
+  { title: "Quizzer", image: quizzer, category: "quizzer" },
+  { title: "Entertainment", image: entainment, category: "entertainment" },
+  { title: "Infography", image: infography, category: "infography" },
+  { title: "Point", image: point, category: "point" },
   
 ];
 
@@ -154,9 +164,9 @@ const Skillsliders = () => {
                             }}
                           />
                         </div>
-                        <div className="card-title-container d-flex justify-content-center mt-3">
+                        <div className="card-title-container d-flex justify-content-center ">
                           <h5
-                            className="card-title text-white px-3 py-2 rounded fw-bold mb-0"
+                            className="card-title text-white px-3  rounded fw-bold mb-0"
                             style={{
                               backgroundColor: "#1e3a8a",
                               fontSize: "14px",
@@ -198,18 +208,7 @@ const Skillsliders = () => {
             ></span>
             <span className="visually-hidden">Next</span>
           </button>
-          <div className="carousel-indicators">
-            {slides.map((_, index) => (
-              <button
-                type="button"
-                data-bs-target="#cardCarousel"
-                data-bs-slide-to={index}
-                className={index === 0 ? "active" : ""}
-                aria-current={index === 0 ? "true" : undefined}
-                key={index}
-              ></button>
-            ))}
-          </div>
+          
         </div>
       </div>
 
@@ -264,7 +263,7 @@ const Skillsliders = () => {
             .carousel-control-prev,
             .carousel-control-next {
               width: 10% !important;
-              background: rgba(0, 0, 0, 0.5);
+              background: transparant;
               opacity: 0.8;
             }
             .carousel-control-prev-icon,
@@ -275,6 +274,7 @@ const Skillsliders = () => {
             }
             .banner-image {
               margin: 25px auto 0 !important;
+              background: transparant;
               border-radius: 6px !important;
             }
             .col-12 {
@@ -311,7 +311,7 @@ const Skillsliders = () => {
             .carousel-control-prev,
             .carousel-control-next {
               width: 10% !important;
-              background: rgba(0, 0, 0, 0.5);
+              background: rgba(191, 47, 47, 0.5);
               opacity: 0.8;
             }
             .carousel-control-prev-icon,
@@ -396,7 +396,7 @@ const Skillsliders = () => {
           .carousel-control-prev,
           .carousel-control-next {
             width: 10% !important;
-            background: rgba(0, 0, 0, 0.5);
+            background: none;
             opacity: 0.8;
             z-index: 2;
           }
