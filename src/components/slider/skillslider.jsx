@@ -6,53 +6,16 @@ import entainment from "../../assets/img/entainment.png";
 import infography from "../../assets/img/infography.png";
 import point from "../../assets/img/point.png";
 
-// Unique card data (removed duplicates, added placeholder for "add me")
+
 const cardData = [
-  {
-    title: "AI Analytics Dashboard",
-    
-    image: worshop,
-    badge: "New",
-    category: "Analytics",
-  },
-  {
-    title: "Cloud Infrastructure",
-    description: "Scalable cloud solutions with automated deployment and monitoring capabilities.",
-    image: quizzer,
-    badge: "Popular",
-    category: "Cloud",
-  },
-  {
-    title: "Mobile Development",
-    description: "Cross-platform mobile apps with native performance and modern UI/UX design.",
-    image: entainment,
-    badge: "Trending",
-    category: "Mobile",
-  },
-  {
-    title: "Security Solutions",
-    description: "Enterprise-grade security with advanced threat detection and prevention systems.",
-    image: infography,
-    badge: "Featured",
-    category: "Security",
-  },
-  {
-    title: "Blockchain Platform",
-    description: "Decentralized applications with smart contract integration and DeFi capabilities.",
-    image: point,
-    badge: "Hot",
-    category: "Blockchain",
-  },
-  {
-    title: "Custom User Card", // Placeholder for "add me"
-    description: "Personalized content or feature tailored to your needs.",
-    image: point, // Replace with your image if provided
-    badge: "Custom",
-    category: "Personalized",
-  },
+  { title: "Workshop", image: worshop, category: "workshop" },
+  { title: "Quizzer", image: quizzer, category: "quizzer" },
+  { title: "Entertainment", image: entainment, category: "entertainment" },
+  { title: "Infography", image: infography, category: "infography" },
+  { title: "Point", image: point, category: "point" },
+  
 ];
 
-// Helper to group cards based on screen size
 const chunkArray = (arr, size) => {
   const result = [];
   for (let i = 0; i < arr.length; i += size) {
@@ -62,18 +25,16 @@ const chunkArray = (arr, size) => {
 };
 
 const Skillsliders = () => {
-  // Dynamically adjust cards per slide based on screen width
   const getCardsPerSlide = () => {
-    if (window.innerWidth <= 320) return 1; // 1 card on very small mobile
-    if (window.innerWidth <= 576) return 1; // 1 card on mobile
-    if (window.innerWidth <= 768) return 2; // 2 cards on small tablet
-    if (window.innerWidth <= 992) return 3; // 3 cards on medium screens
-    return 5; // 5 cards on desktop
+    if (window.innerWidth <= 320) return 1;
+    if (window.innerWidth <= 576) return 1;
+    if (window.innerWidth <= 768) return 2;
+    if (window.innerWidth <= 992) return 3;
+    return 5;
   };
 
   const [cardsPerSlide, setCardsPerSlide] = React.useState(getCardsPerSlide());
 
-  // Update cards per slide on window resize
   React.useEffect(() => {
     const handleResize = () => {
       setCardsPerSlide(getCardsPerSlide());
@@ -82,28 +43,31 @@ const Skillsliders = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  React.useEffect(() => {
+    const carouselElement = document.getElementById("cardCarousel");
+    if (carouselElement) {
+      new window.bootstrap.Carousel(carouselElement, {
+        interval: 4000,
+        ride: "carousel",
+        pause: "hover",
+        touch: true,
+      });
+    }
+  }, []);
+
   const slides = chunkArray(cardData, cardsPerSlide);
 
-  const getBadgeColor = (badge) => {
-    const colors = {
-      New: "bg-success",
-      Popular: "bg-primary",
-      Trending: "bg-warning",
-      Featured: "bg-danger",
-      Hot: "bg-info",
-      Custom: "bg-secondary",
-    };
-    return colors[badge] || "bg-secondary";
-  };
-
-  // Get column classes based on cards per slide
   const getColumnClass = () => {
     if (cardsPerSlide === 5) return "desktop-5-col";
     switch (cardsPerSlide) {
-      case 1: return "col-12";
-      case 2: return "col-12 col-sm-6";
-      case 3: return "col-12 col-sm-6 col-md-4";
-      default: return "col-12 col-sm-6 col-md-3";
+      case 1:
+        return "col-12";
+      case 2:
+        return "col-12 col-sm-6";
+      case 3:
+        return "col-12 col-sm-6 col-md-4";
+      default:
+        return "col-12 col-sm-6 col-md-3";
     }
   };
 
@@ -116,16 +80,20 @@ const Skillsliders = () => {
               SUPER-FUN & INTERACTIVE LEARNING ACTIVITIES
             </h1>
             <p className="fs-6 fs-md-5 text-secondary">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of type
+              and scrambled it to make a type specimen book.
             </p>
             <p className="fs-6 fs-md-5 text-secondary">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Slider */}
       <div className="container mobile-container">
         <div
           id="cardCarousel"
@@ -139,7 +107,11 @@ const Skillsliders = () => {
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={index}
               >
-                <div className={`row ${cardsPerSlide === 5 ? "five-card-row" : "mobile-row"} justify-content-center align-items-stretch`}>
+                <div
+                  className={`row ${
+                    cardsPerSlide === 5 ? "five-card-row" : "mobile-row"
+                  } justify-content-center align-items-stretch`}
+                >
                   {slide.map((card, i) => (
                     <div
                       className={getColumnClass()}
@@ -150,7 +122,7 @@ const Skillsliders = () => {
                       }}
                     >
                       <div
-                        className="card h-100 border-0 mobile-card"
+                        className="card h-100 border-0 mobile-card text-center"
                         style={{
                           backgroundColor: "transparent",
                           transition: "all 0.5s ease",
@@ -167,7 +139,7 @@ const Skillsliders = () => {
                         <div
                           className="position-relative overflow-hidden card-image-container"
                           style={{
-                            borderRadius: "20px 20px 0 0",
+                            borderRadius: "20px",
                           }}
                         >
                           <img
@@ -180,26 +152,20 @@ const Skillsliders = () => {
                               objectFit: "contain",
                               transition: "transform 0.3s ease",
                             }}
-                            onMouseEnter={(e) => {
-                              e.target.style.transform = "scale(1.05)";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.target.style.transform = "scale(1)";
-                            }}
                           />
-                          <span
-                            className={`position-absolute top-0 start-0 badge ${getBadgeColor(
-                              card.badge
-                            )} m-2`}
-                          >
-                            {card.badge}
-                          </span>
                         </div>
-                        <div className="card-body text-center">
-                          <h5 className="card-title fw-bold">{card.title}</h5>
-                          <p className="card-text text-secondary">
-                            {card.description}
-                          </p>
+                        <div className="card-title-container d-flex justify-content-center mt-3">
+                          <h5
+                            className="card-title text-white px-3 py-2 rounded fw-bold mb-0"
+                            style={{
+                              backgroundColor: "#1e3a8a",
+                              fontSize: "14px",
+                              textTransform: "capitalize",
+                              display: "inline-block",
+                            }}
+                          >
+                            {card.title}
+                          </h5>
                         </div>
                       </div>
                     </div>
@@ -208,14 +174,16 @@ const Skillsliders = () => {
               </div>
             ))}
           </div>
-          {/* Carousel Controls */}
           <button
             className="carousel-control-prev"
             type="button"
             data-bs-target="#cardCarousel"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -224,13 +192,27 @@ const Skillsliders = () => {
             data-bs-target="#cardCarousel"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
+          <div className="carousel-indicators">
+            {slides.map((_, index) => (
+              <button
+                type="button"
+                data-bs-target="#cardCarousel"
+                data-bs-slide-to={index}
+                className={index === 0 ? "active" : ""}
+                aria-current={index === 0 ? "true" : undefined}
+                key={index}
+              ></button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Bottom Banner Image */}
       <div className="row">
         <div className="col-12">
           <img
@@ -279,25 +261,16 @@ const Skillsliders = () => {
               height: 180px !important;
               object-fit: contain !important;
             }
-            .card-body {
-              padding: 10px !important;
-            }
-            .card-title {
-              font-size: 1rem !important;
-            }
-            .card-text {
-              font-size: 0.85rem !important;
-            }
             .carousel-control-prev,
             .carousel-control-next {
-              width: 15% !important;
-              background: rgba(0, 0, 0, 0.3);
-              opacity: 0.9;
+              width: 10% !important;
+              background: rgba(0, 0, 0, 0.5);
+              opacity: 0.8;
             }
             .carousel-control-prev-icon,
             .carousel-control-next-icon {
-              width: 18px !important;
-              height: 18px !important;
+              width: 30px !important;
+              height: 30px !important;
               background-size: contain !important;
             }
             .banner-image {
@@ -335,25 +308,16 @@ const Skillsliders = () => {
               height: 200px !important;
               object-fit: contain !important;
             }
-            .card-body {
-              padding: 12px !important;
-            }
-            .card-title {
-              font-size: 1.1rem !important;
-            }
-            .card-text {
-              font-size: 0.9rem !important;
-            }
             .carousel-control-prev,
             .carousel-control-next {
-              width: 15% !important;
-              background: rgba(0, 0, 0, 0.3);
+              width: 10% !important;
+              background: rgba(0, 0, 0, 0.5);
               opacity: 0.8;
             }
             .carousel-control-prev-icon,
             .carousel-control-next-icon {
-              width: 20px !important;
-              height: 20px !important;
+              width: 30px !important;
+              height: 30px !important;
               background-size: contain !important;
             }
             .banner-image {
@@ -378,9 +342,6 @@ const Skillsliders = () => {
               max-height: 220px !important;
               height: 220px !important;
             }
-            .card-body {
-              padding: 15px !important;
-            }
           }
 
           @media (min-width: 769px) and (max-width: 991px) {
@@ -393,9 +354,6 @@ const Skillsliders = () => {
             .card-img-top {
               max-height: 200px !important;
               height: 200px !important;
-            }
-            .card-body {
-              padding: 15px !important;
             }
           }
 
@@ -418,9 +376,6 @@ const Skillsliders = () => {
               height: 150px !important;
               object-fit: contain !important;
             }
-            .card-body {
-              padding: 15px !important;
-            }
           }
 
           /* General animations and effects */
@@ -440,37 +395,34 @@ const Skillsliders = () => {
 
           .carousel-control-prev,
           .carousel-control-next {
-            width: 5%;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.3);
+            width: 10% !important;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0.8;
+            z-index: 2;
           }
 
           .carousel-control-prev-icon,
           .carousel-control-next-icon {
-            width: 20px;
-            height: 20px;
-            background-size: contain;
+            width: 30px !important;
+            height: 30px !important;
+            background-size: contain !important;
           }
 
-          .badge {
-            font-size: 0.8rem;
-            padding: 5px 10px;
+          .carousel-indicators {
+            bottom: -40px !important;
           }
 
-          .card-body {
-            padding: 15px;
-            background: #fff;
-            border-radius: 0 0 20px 20px;
+          .carousel-indicators button {
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 50% !important;
+            background-color: #1e3a8a !important;
+            opacity: 0.5;
           }
 
-          .card-title {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-          }
-
-          .card-text {
-            font-size: 0.95rem;
-            line-height: 1.4;
+          .carousel-indicators .active {
+            opacity: 1 !important;
+            background-color: #1e3a8a !important;
           }
         `}
       </style>
