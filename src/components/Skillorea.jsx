@@ -1,14 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import React from "react";
 import screenone from "../assets/img/screen1.png";
 import screentwo from "../assets/img/screen2.png";
 import screenthree from "../assets/img/screen3.png";
 import screenfour from "../assets/img/screen4.png";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
+
 
 // Unique card data
 const cardData = [
@@ -29,7 +25,7 @@ const cardData = [
   {
     title: "Mobile Development",
     description: "Cross-platform mobile apps with native performance and modern UI/UX design.",
-    image: screentree,
+    image: screenthree,
     badge: "Trending",
     category: "Mobile",
   },
@@ -53,7 +49,7 @@ const cardData = [
     image: screentwo,
     badge: "New",
     category: "IoT",
-  },
+  }, 
   {
     title: "Mobile Development",
     description: "Cross-platform mobile apps with native performance and modern UI/UX design.",
@@ -70,33 +66,35 @@ const cardData = [
   },
 ];
 
-// Helper to determine cards per slide based on screen size
-const getCardsPerSlide = () => {
-  if (typeof window !== "undefined") {
-    if (window.innerWidth <= 576) return 1; // 1 card on mobile
-    if (window.innerWidth <= 768) return 2; // 2 cards on tablet
-    return 4; // 4 cards on desktop
+// Helper to group cards based on screen size
+const chunkArray = (arr, size) => {
+  const result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
   }
-  return 4; // Default fallback
+  return result;
 };
 
 const CardSlider = () => {
-  const [cardsPerSlide, setCardsPerSlide] = React.useState(getCardsPerSlide());
-  const swiperRef = useRef(null); // Reference to Swiper instance
+  // Dynamically adjust cards per slide based on screen width
+  const getCardsPerSlide = () => {
+    if (window.innerWidth <= 576) return 1; // 1 card on mobile
+    if (window.innerWidth <= 768) return 2; // 2 cards on tablet
+    return 4; // 4 cards on desktop
+  };
 
-  // Update cards per slide and reinitialize Swiper on window resize
-  useEffect(() => {
+  const [cardsPerSlide, setCardsPerSlide] = React.useState(getCardsPerSlide());
+
+  // Update cards per slide on window resize
+  React.useEffect(() => {
     const handleResize = () => {
-      const newCardsPerSlide = getCardsPerSlide();
-      setCardsPerSlide(newCardsPerSlide);
-      if (swiperRef.current && swiperRef.current.swiper) {
-        swiperRef.current.swiper.update(); // Update Swiper on resize
-      }
+      setCardsPerSlide(getCardsPerSlide());
     };
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial call to set correct layout
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const slides = chunkArray(cardData, cardsPerSlide);
 
   const getBadgeColor = (badge) => {
     const colors = {
@@ -109,68 +107,58 @@ const CardSlider = () => {
     return colors[badge] || "bg-secondary";
   };
 
-  // Group cards into slides
-  const chunkArray = (arr, size) => {
-    const result = [];
-    for (let i = 0; i < arr.length; i += size) {
-      result.push(arr.slice(i, i + size));
-    }
-    return result;
-  };
-
-  const slides = chunkArray(cardData, cardsPerSlide);
-
   return (
     <div className="container-fluid py-5" style={{ overflow: "hidden" }}>
-      {/* Download Now */}
-      <div className="container"></div>
-
-      {/* Slider */}
+      
+      {/* download now  */}
       <div className="container">
-        <div className="position-relative">
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            navigation={{
-              prevEl: ".carousel-control-prev",
-              nextEl: ".carousel-control-next",
-            }}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            slidesPerView={1}
-            spaceBetween={0}
-            className="carousel-container"
-            style={{ overflow: "hidden" }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance
-          >
+
+      </div>
+      {/* slider  */}
+      <div className="container">
+        <div
+          id="cardCarousel"
+          className="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="4000"
+        >
+          <div className="carousel-inner">
             {slides.map((slide, index) => (
-              <SwiperSlide key={index}>
+              <div
+                className={`carousel-item ${index === 0 ? "active" : ""}`}
+                key={index}
+              >
                 <div className="row g-4 justify-content-center">
                   {slide.map((card, i) => (
                     <div
-                      className={`${
-                        cardsPerSlide === 1
-                          ? "col-12"
-                          : cardsPerSlide === 2
-                          ? "col-6"
-                          : "col-12 col-sm-6 col-md-6 col-lg-3"
-                      }`}
+                      className={`col-12 col-sm-6 col-md-${cardsPerSlide === 1 ? 12 : 6
+                        } col-lg-${cardsPerSlide === 4 ? 3 : cardsPerSlide === 2 ? 6 : 12}`}
                       key={i}
                     >
                       <div
-                        className="card h-100 border-0 card-hover"
+                        className="card h-100 border-0 "
                         style={{
                           backgroundColor: "transparent",
                           transition: "all 0.3s ease",
                           transform: "translateY(0)",
-                          boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "translateY(-10px)";
+                          e.currentTarget.style.boxShadow =
+                            "0 20px 40px rgba(0,0,0,0.2)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "translateY(0)";
+                          e.currentTarget.style.boxShadow =
+                            "0 10px 30px rgba(0,0,0,0.1)";
                         }}
                       >
                         <div
                           className="position-relative overflow-hidden"
                           style={{
                             borderRadius: "20px 20px 0 0",
+
                           }}
                         >
                           <img
@@ -179,9 +167,15 @@ const CardSlider = () => {
                             alt={card.title}
                             style={{
                               width: "100%",
-                              height: cardsPerSlide === 1 ? "200px" : cardsPerSlide === 2 ? "220px" : "250px",
-                              objectFit: "contain",
+                              height: "100%",
+                              objectFit: "contain", // Changed to contain to show full image
                               transition: "transform 0.3s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.transform = "scale(1.05)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.transform = "scale(1)";
                             }}
                           />
                           <span
@@ -192,84 +186,40 @@ const CardSlider = () => {
                             {card.badge}
                           </span>
                         </div>
+
                       </div>
                     </div>
                   ))}
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
-          </Swiper>
-
+          </div>
           {/* Navigation Arrows */}
           <button
-            className="carousel-control carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "10px",
-              transform: "translateY(-50%)",
-              zIndex: 10,
-              border: "none",
-              background: "none",
-              display: cardsPerSlide === 1 ? "block" : "block",
-            }}
+            data-bs-target="#cardCarousel"
+            data-bs-slide="prev"
           >
             <div className="bg-dark rounded-circle p-2 shadow">
-              <svg width="20" height="20" fill="white" viewBox="0 0 16 16">
-                <path
-                  fillRule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-                />
-              </svg>
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
             </div>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control carousel-control-next"
+            className="carousel-control-next"
             type="button"
-            style={{
-              position: "absolute",
-              top: "50%",
-              right: "10px",
-              transform: "translateY(-50%)",
-              zIndex: 10,
-              border: "none",
-              background: "none",
-              display: cardsPerSlide === 1 ? "block" : "block",
-            }}
+            data-bs-target="#cardCarousel"
+            data-bs-slide="next"
           >
             <div className="bg-dark rounded-circle p-2 shadow">
-              <svg width="20" height="20" fill="white" viewBox="0 0 16 16">
-                <path
-                  fillRule="evenodd"
-                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                />
-              </svg>
+              <span className="carousel-control-next-icon" aria-hidden="true" />
             </div>
             <span className="visually-hidden">Next</span>
           </button>
-
-          {/* Slide Indicators */}
-          <div className="carousel-indicators d-flex justify-content-center mt-3">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                className={`indicator ${index === 0 ? "active" : ""}`}
-                style={{
-                  width: "10px",
-                  height: "10px",
-                  borderRadius: "50%",
-                  border: "none",
-                  margin: "0 5px",
-                  backgroundColor: index === 0 ? "#007bff" : "#ccc",
-                  transition: "background-color 0.3s ease",
-                }}
-              />
-            ))}
-          </div>
         </div>
       </div>
+
 
       {/* Decorative Oval Shapes */}
       <div className="position-relative overflow-hidden">
@@ -289,7 +239,7 @@ const CardSlider = () => {
           }}
         />
         <div
-          className="position-absolute floating-shape-1"
+          className="position-absolute"
           style={{
             bottom: "-100px",
             left: "20%",
@@ -299,10 +249,11 @@ const CardSlider = () => {
               "linear-gradient(45deg, rgba(0,123,255,0.2) 0%, rgba(108,117,125,0.2) 100%)",
             borderRadius: "50%",
             backdropFilter: "blur(15px)",
+            animation: "float 6s ease-in-out infinite",
           }}
         />
         <div
-          className="position-absolute floating-shape-2"
+          className="position-absolute"
           style={{
             bottom: "-50px",
             right: "15%",
@@ -312,10 +263,11 @@ const CardSlider = () => {
               "linear-gradient(135deg, rgba(0,123,255,0.15) 0%, rgba(0,123,255,0.1) 100%)",
             borderRadius: "50%",
             backdropFilter: "blur(10px)",
+            animation: "float 4s ease-in-out infinite reverse",
           }}
         />
         <div
-          className="position-absolute pulsing-shape-1"
+          className="position-absolute"
           style={{
             bottom: "20px",
             left: "10%",
@@ -324,10 +276,11 @@ const CardSlider = () => {
             background: "rgba(0,123,255,0.2)",
             borderRadius: "50%",
             backdropFilter: "blur(5px)",
+            animation: "pulse 3s ease-in-out infinite",
           }}
         />
         <div
-          className="position-absolute pulsing-shape-2"
+          className="position-absolute"
           style={{
             bottom: "40px",
             right: "25%",
@@ -336,6 +289,7 @@ const CardSlider = () => {
             background: "rgba(0,123,255,0.3)",
             borderRadius: "50%",
             backdropFilter: "blur(8px)",
+            animation: "pulse 2s ease-in-out infinite",
           }}
         />
         <div style={{ height: "150px" }} />
@@ -343,22 +297,6 @@ const CardSlider = () => {
 
       <style>
         {`
-          .floating-shape-1 {
-            animation: float 6s ease-in-out infinite;
-          }
-          
-          .floating-shape-2 {
-            animation: float 4s ease-in-out infinite reverse;
-          }
-          
-          .pulsing-shape-1 {
-            animation: pulse 3s ease-in-out infinite;
-          }
-          
-          .pulsing-shape-2 {
-            animation: pulse 2s ease-in-out infinite;
-          }
-
           @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -369,87 +307,46 @@ const CardSlider = () => {
             50% { opacity: 1; transform: scale(1.1); }
           }
 
-          .card-hover:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
-          }
-
-          .card-hover:hover .card-img-top {
+          .card:hover .card-img-top {
             transform: scale(1.05);
           }
 
-          .carousel-control:hover .bg-dark {
-            background-color: #495057 !important;
+          .carousel-control-prev,
+          .carousel-control-next {
+            width: 5%;
+            z-index: 1; /* Ensure arrows are above other elements */
           }
 
-          /* Mobile Optimizations */
+          .carousel-control-prev-icon,
+          .carousel-control-next-icon {
+            width: 20px;
+            height: 20px;
+          }
+
           @media (max-width: 576px) {
-            .carousel-container {
-              padding: 0 10px;
-            }
-
-            .card {
-              margin: 0 auto;
-              max-width: 100%;
-            }
-
-            .card-img-top {
-              height: 200px !important;
-              object-fit: contain;
-            }
-
-            .carousel-control .bg-dark {
-              padding: 6px !important;
-            }
-
-            .carousel-control svg {
-              width: 14px !important;
-              height: 14px !important;
-            }
-
-            .carousel-control-prev {
-              left: -5px !important;
-            }
-
+            .carousel-control-prev,
             .carousel-control-next {
-              right: -5px !important;
+              width: 10%;
+            }
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+              width: 15px;
+              height: 15px;
+            }
+            .card-img-top {
+              max-height: 200px; /* Flexible height for mobile */
+              object-fit: contain !important; /* Ensure full image is visible */
+            }
+            .card {
+              margin: 0 auto; /* Center card on mobile */
+              max-width: 90%; /* Prevent overflow */
             }
           }
 
-          /* Tablet Optimizations */
           @media (min-width: 577px) and (max-width: 768px) {
             .card-img-top {
-              height: 220px !important;
-              object-fit: contain;
+              max-height: 250px; /* Slightly larger for tablets */
             }
-
-            .carousel-control-prev {
-              left: 0;
-            }
-
-            .carousel-control-next {
-              right: 0;
-            }
-          }
-
-          /* Desktop Optimizations */
-          @media (min-width: 769px) {
-            .card-img-top {
-              height: 250px !important;
-              object-fit: contain;
-            }
-          }
-
-          /* Swiper Navigation */
-          .swiper-button-disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-          }
-
-          .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
           }
         `}
       </style>
