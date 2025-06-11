@@ -195,7 +195,6 @@ const LandingPage = () => {
 
             <HeroSection />
 
-
             {/* features - Mobile Responsive */}
             <section id="features">
                 <div className="container">
