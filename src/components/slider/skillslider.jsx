@@ -13,17 +13,17 @@ const cardData = [
   { title: "Entertainment", image: entainment, category: "entertainment" },
   { title: "Infography", image: infography, category: "infography" },
   { title: "Point", image: point, category: "point" },
-    { title: "Workshop", image: worshop, category: "workshop" },
+  { title: "Workshop", image: worshop, category: "workshop" },
   { title: "Quizzer", image: quizzer, category: "quizzer" },
   { title: "Entertainment", image: entainment, category: "entertainment" },
   { title: "Infography", image: infography, category: "infography" },
   { title: "Point", image: point, category: "point" },
-    { title: "Workshop", image: worshop, category: "workshop" },
+  { title: "Workshop", image: worshop, category: "workshop" },
   { title: "Quizzer", image: quizzer, category: "quizzer" },
   { title: "Entertainment", image: entainment, category: "entertainment" },
   { title: "Infography", image: infography, category: "infography" },
   { title: "Point", image: point, category: "point" },
-  
+
 ];
 
 const chunkArray = (arr, size) => {
@@ -118,9 +118,8 @@ const Skillsliders = () => {
                 key={index}
               >
                 <div
-                  className={`row ${
-                    cardsPerSlide === 5 ? "five-card-row" : "mobile-row"
-                  } justify-content-center align-items-stretch`}
+                  className={`row ${cardsPerSlide === 5 ? "five-card-row" : "mobile-row"
+                    } justify-content-center align-items-stretch`}
                 >
                   {slide.map((card, i) => (
                     <div
@@ -158,7 +157,8 @@ const Skillsliders = () => {
                             alt={card.title}
                             style={{
                               width: "100%",
-                              height: "100%",
+                              height: "350px", // 👈 NEW
+                              minHeight: "190px", // 👈 NEW
                               objectFit: "contain",
                               transition: "transform 0.3s ease",
                             }}
@@ -169,7 +169,7 @@ const Skillsliders = () => {
                             className="card-title text-white px-3  rounded fw-bold mb-0"
                             style={{
                               backgroundColor: "#1e3a8a",
-                              fontSize: "14px",
+                              fontSize: "12px",
                               textTransform: "capitalize",
                               display: "inline-block",
                             }}
@@ -184,7 +184,7 @@ const Skillsliders = () => {
               </div>
             ))}
           </div>
-          
+
         </div>
       </div>
 
@@ -348,7 +348,7 @@ const Skillsliders = () => {
               min-width: 0;
             }
             .card-img-top {
-              max-height: 150px !important;
+              max-height: 180px !important;
               height: 150px !important;
               object-fit: contain !important;
             }
@@ -400,9 +400,16 @@ const Skillsliders = () => {
             opacity: 1 !important;
             background-color: #1e3a8a !important;
           }
+            .card-title {
+  width: 70% !important;
+  max-width: 100% !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
         `}
       </style>
-      
+
     </div>
   );
 };
