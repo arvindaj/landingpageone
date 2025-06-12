@@ -40,10 +40,12 @@ body {
     font-size: 0.75rem;
     margin-top: 25px;
   }
+
   .trackyour h2 {
     font-size: 11px;
     width: 60%;
   }
+
   .trackyour p {
     font-size: 10px;
     width: 60%;
@@ -156,9 +158,12 @@ body {
   border: none;
   background-color: #07da03;
   border-radius: 5px;
-  font-size: 0.75rem; /* 12px base, scales better than 10px */
-  padding: 8px 16px; /* Comfortable padding for touch */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+  font-size: 0.75rem;
+  /* 12px base, scales better than 10px */
+  padding: 8px 16px;
+  /* Comfortable padding for touch */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Smooth hover effect */
   cursor: pointer;
 }
 
@@ -180,34 +185,42 @@ body {
 
 .download-btn:hover,
 .call-btn:hover {
-  background-color: #06b803; /* Slightly darker green on hover */
-  transform: translateY(-2px); /* Subtle lift effect */
+  background-color: #06b803;
+  /* Slightly darker green on hover */
+  transform: translateY(-2px);
+  /* Subtle lift effect */
 }
 
 /* Phone number link */
 a[href^="tel"] {
-  font-size: 1rem; /* 16px base */
+  font-size: 1rem;
+  /* 16px base */
   color: white !important;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a[href^="tel"]:hover {
-  color: #d0d0d0 !important; /* Light gray on hover */
+  color: #d0d0d0 !important;
+  /* Light gray on hover */
 }
 
 /* For mobile screens (max-width: 576px) */
 @media (max-width: 576px) {
+
   .download-btn,
   .call-btn {
-    font-size: 0.7rem; /* 11.2px */
+    font-size: 0.7rem;
+    /* 11.2px */
     padding: 6px 12px;
-    width: 100px; /* Slightly smaller */
+    width: 100px;
+    /* Slightly smaller */
     height: 28px;
   }
 
   .download-btn {
-    width: 110px; /* Adjusted for mobile */
+    width: 110px;
+    /* Adjusted for mobile */
   }
 
   .call-btn {
@@ -215,31 +228,38 @@ a[href^="tel"]:hover {
   }
 
   a[href^="tel"] {
-    font-size: 0.9rem; /* 14.4px for readability */
+    font-size: 0.9rem;
+    /* 14.4px for readability */
   }
 
   .description-section p {
-    font-size: 0.8rem !important; /* Match previous card text */
+    font-size: 0.8rem !important;
+    /* Match previous card text */
     margin-bottom: 0.75rem !important;
   }
 
   .description-section .col-7,
   .description-section .col-md-6 {
-    padding-left: 0 !important; /* Remove excessive padding */
-    margin-left: 0 !important; /* Override ms-4 */
+    padding-left: 0 !important;
+    /* Remove excessive padding */
+    margin-left: 0 !important;
+    /* Override ms-4 */
   }
 
   .description-section .d-flex {
-    gap: 8px !important; /* Smaller gap for mobile */
+    gap: 8px !important;
+    /* Smaller gap for mobile */
   }
 }
 
 
 /* For very small mobile screens (max-width: 320px) */
 @media (max-width: 320px) {
+
   .download-btn,
   .call-btn {
-    font-size: 0.65rem; /* 10.4px */
+    font-size: 0.65rem;
+    /* 10.4px */
     padding: 5px 10px;
     width: 90px;
     height: 26px;
@@ -254,33 +274,40 @@ a[href^="tel"]:hover {
   }
 
   a[href^="tel"] {
-    font-size: 0.85rem; /* 13.6px */
+    font-size: 0.85rem;
+    /* 13.6px */
   }
 
   .description-section p {
-    font-size: 0.7rem !important; /* Match previous card text */
+    font-size: 0.7rem !important;
+    /* Match previous card text */
     margin-bottom: 0.5rem !important;
     padding: 0 5px !important;
   }
 
   .description-section .d-flex {
-    gap: 5px !important; /* Tighter gap */
-    flex-direction: column !important; /* Stack buttons vertically */
+    gap: 5px !important;
+    /* Tighter gap */
+    flex-direction: column !important;
+    /* Stack buttons vertically */
     align-items: center !important;
   }
 
   .description-section .col-7,
   .description-section .col-md-6 {
-    width: 100% !important; /* Full width for phone number */
+    width: 100% !important;
+    /* Full width for phone number */
     text-align: center !important;
   }
 }
 
 /* For large screens (min-width: 2560px) */
 @media (min-width: 2560px) {
+
   .download-btn,
   .call-btn {
-    font-size: 1rem; /* 16px for larger screens */
+    font-size: 1rem;
+    /* 16px for larger screens */
     padding: 10px 20px;
     width: 140px;
     height: 35px;
@@ -295,17 +322,20 @@ a[href^="tel"]:hover {
   }
 
   a[href^="tel"] {
-    font-size: 1.25rem; /* 20px for ultra-wide screens */
+    font-size: 1.25rem;
+    /* 20px for ultra-wide screens */
   }
 
   .description-section p {
-    font-size: 1.1rem !important; /* Larger text */
+    font-size: 1.1rem !important;
+    /* Larger text */
     margin-bottom: 1rem !important;
   }
 }
 
 /* For landscape mode on small devices */
 @media (max-height: 500px) and (orientation: landscape) {
+
   .download-btn,
   .call-btn {
     font-size: 0.7rem;
@@ -330,6 +360,7 @@ a[href^="tel"]:hover {
     font-size: 0.9rem;
   }
 }
+
 /* Store Images */
 .store-img {
   max-width: 100px;
@@ -529,7 +560,8 @@ a[href^="tel"]:hover {
   .feature-points li {
     font-size: 0.8rem;
   }
-  .footerbgimg{
+
+  .footerbgimg {
     height: 65%;
   }
 }
@@ -537,7 +569,7 @@ a[href^="tel"]:hover {
 
 @media (max-width: 320px) {
 
-   .footerbgimg{
+  .footerbgimg {
     min-height: 55%;
   }
 }
@@ -547,21 +579,21 @@ a[href^="tel"]:hover {
 
 
 
-.cartoon-img{
-   margin-top: 4;
+.cartoon-img {
+  margin-top: 4;
   overflow: hidden;
   width: auto;
 }
 
 @media (max-width: 768px) {
-  
+
   .img-slider {
     width: 70%;
   }
 }
 
 @media (max-width: 576px) {
-   .img-slider {
+  .img-slider {
     width: 70%;
     margin-left: 0;
     margin-top: -70%;
@@ -575,7 +607,7 @@ a[href^="tel"]:hover {
 }
 
 @media (max-width: 425px) {
-   .img-slider {
+  .img-slider {
     width: 60%;
     margin-left: 0;
     margin-top: -60%;
@@ -584,56 +616,63 @@ a[href^="tel"]:hover {
 
 
 @media (max-width: 1200px) {
-    .feature-item {
-        margin-bottom: 1.5rem !important;
-    }
+  .feature-item {
+    margin-bottom: 1.5rem !important;
+  }
 }
 
 @media (max-width: 992px) {
-    #features {
-        padding: 30px 0 !important;
-    }
-    .feature-item {
-        margin-bottom: 2rem !important;
-    }
+  #features {
+    padding: 30px 0 !important;
+  }
+
+  .feature-item {
+    margin-bottom: 2rem !important;
+  }
 }
 
 @media (max-width: 768px) {
-    #features {
-        padding: 25px 0 !important;
-    }
-    .container {
-        padding: 0 20px;
-    }
-    .feature-item {
-        margin-bottom: 1.5rem !important;
-        border-radius: 12px !important;
-    }
+  #features {
+    padding: 25px 0 !important;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .feature-item {
+    margin-bottom: 1.5rem !important;
+    border-radius: 12px !important;
+  }
 }
 
 @media (max-width: 576px) {
-    #features {
-        padding: 20px 0 !important;
-    }
-    .container {
-        padding: 0 15px;
-    }
-    .feature-item {
-        margin-bottom: 1.25rem !important;
-        border-radius: 10px !important;
-    }
-    .row.g-5 {
-        gap: 2rem !important;
-    }
+  #features {
+    padding: 20px 0 !important;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .feature-item {
+    margin-bottom: 1.25rem !important;
+    border-radius: 10px !important;
+  }
+
+  .row.g-5 {
+    gap: 2rem !important;
+  }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    .feature-item {
-        padding: 12px !important;
-    }
+  .container {
+    padding: 0 10px;
+  }
+
+  .feature-item {
+    padding: 12px !important;
+  }
 }
 
 /* Smooth transitions for responsive changes */
@@ -642,15 +681,15 @@ a[href^="tel"]:hover {
 h5,
 p,
 li {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* Touch-friendly hover states for mobile */
 @media (hover: none) and (pointer: coarse) {
-    .feature-item:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease;
-    }
+  .feature-item:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
 }
 
 /* Mobile-first responsive design */
@@ -660,42 +699,50 @@ li {
     padding: 0 5px !important;
     margin: 0 auto !important;
   }
+
   .mobile-row {
     margin: 0 !important;
     padding: 0 5px !important;
   }
+
   .mobile-card {
     margin: 0 auto 15px auto !important;
     max-width: 100% !important;
     width: 100% !important;
     padding: 0 !important;
   }
+
   .card-image-container {
     height: 180px !important;
     min-height: 180px !important;
   }
+
   .card-img-top {
     max-height: 180px !important;
     height: 180px !important;
     object-fit: contain !important;
   }
+
   .carousel-control-prev,
   .carousel-control-next {
     width: 10% !important;
     background: transparent;
     opacity: 0.8;
   }
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     width: 30px !important;
     height: 30px !important;
     background-size: contain !important;
   }
+
   .banner-image {
     margin: 25px auto 0 !important;
     background: transparent;
     border-radius: 6px !important;
   }
+
   .col-12 {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -709,40 +756,48 @@ li {
     padding: 0 10px !important;
     margin: 0 auto !important;
   }
+
   .mobile-row {
     margin: 0 !important;
     padding: 0 !important;
   }
+
   .mobile-card {
     margin: 0 auto 20px auto !important;
     max-width: 100% !important;
     width: 100% !important;
   }
+
   .card-image-container {
     height: 200px !important;
     min-height: 200px !important;
   }
+
   .card-img-top {
     max-height: 200px !important;
     height: 200px !important;
     object-fit: contain !important;
   }
+
   .carousel-control-prev,
   .carousel-control-next {
     width: 10% !important;
     background: rgba(191, 47, 47, 0.5);
     opacity: 0.8;
   }
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     width: 30px !important;
     height: 30px !important;
     background-size: contain !important;
   }
+
   .banner-image {
     margin: 30px auto 0 !important;
     border-radius: 8px !important;
   }
+
   .col-12 {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -754,9 +809,11 @@ li {
     width: 90% !important;
     margin: 0 auto !important;
   }
+
   .card-image-container {
     height: 220px !important;
   }
+
   .card-img-top {
     max-height: 220px !important;
     height: 220px !important;
@@ -767,9 +824,11 @@ li {
   .mobile-container {
     width: 85% !important;
   }
+
   .card-image-container {
     height: 200px !important;
   }
+
   .card-img-top {
     max-height: 200px !important;
     height: 200px !important;
@@ -780,16 +839,19 @@ li {
   .mobile-container {
     width: 70% !important;
   }
+
   .five-card-row {
     display: flex !important;
     flex-wrap: nowrap !important;
     gap: 15px;
   }
+
   .desktop-5-col {
     flex: 1 1 calc(20% - 12px) !important;
     max-width: calc(20% - 12px) !important;
     min-width: 0;
   }
+
   .card-img-top {
     max-height: 180px !important;
     height: 150px !important;
@@ -799,13 +861,29 @@ li {
 
 /* General animations and effects */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 .card:hover .card-img-top {
@@ -867,17 +945,21 @@ li {
     align-items: start;
     text-align: start;
   }
+
   .vertically h5,
   .vertically h1 {
     margin-left: 50px !important;
     margin-right: 0 !important;
   }
+
   .logo-img {
     max-width: 80px !important;
   }
+
   .header-text h5 {
     font-size: 22px !important;
   }
+
   .header-text h1 {
     font-size: 38px !important;
   }
@@ -889,26 +971,37 @@ li {
     align-items: start;
     text-align: start;
   }
+
   .vertically h5,
   .vertically h1 {
     margin-left: 20px !important;
     margin-right: 0 !important;
   }
+
   .logo-img {
     max-width: 40px !important;
   }
+
   .header-text h5 {
     font-size: 10px !important;
   }
+
   .header-text h1 {
     font-size: 18px !important;
   }
+
+  .card-title {
+    width: 40% !important;
+
+  }
+
 }
 
 @media (max-width: 320px) {
   .header-text h5 {
     font-size: 10px !important;
   }
+
   .header-text h1 {
     font-size: 18px !important;
   }
