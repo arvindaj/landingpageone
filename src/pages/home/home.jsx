@@ -381,8 +381,6 @@ const LandingPage = () => {
                     maxHeight: '500px' // Add this
                 }}
             >
-                {/* Optional overlay for better text visibility */}
-
                 {/* Footer Content */}
                 <div className="container position-relative mt-lg-5 pt-4 mb-lg-3 " style={{ zIndex: 1 }}>
                     {/* Row 1: Centered Image */}
