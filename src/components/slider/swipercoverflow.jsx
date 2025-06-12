@@ -39,7 +39,7 @@ const Swipercoverflow = () => {
                 src={appstore}
                 alt="App Store"
                 className="img-fluid skillorea-store-img"
-                style={{ maxHeight: '50px', minHeight: '30px', minWidth:'60px'}}
+                style={{ maxHeight: '50px', minHeight: '30px', minWidth: '60px' }}
               />
             </a>
             <a href="#" className="skillorea-button mx-2">
@@ -47,7 +47,7 @@ const Swipercoverflow = () => {
                 src={playstore}
                 alt="Play Store"
                 className="img-fluid skillorea-store-img"
-                style={{ maxHeight: '50px', minHeight: '30px',minWidth:'60px' }}
+                style={{ maxHeight: '50px', minHeight: '30px', minWidth: '60px' }}
               />
             </a>
             <a href="#" className="skillorea-button mx-2">
@@ -55,14 +55,14 @@ const Swipercoverflow = () => {
                 src={gotolive}
                 alt="Go to Live"
                 className="img-fluid skillorea-store-img"
-                style={{ maxHeight: '50px', minHeight: '30px' ,minWidth:'60px'}}
+                style={{ maxHeight: '50px', minHeight: '30px', minWidth: '60px' }}
               />
             </a>
           </div>
         </div>
         <div className="col-12 col-md-10 col-lg-8 p-lg-5 p-5 position-relative">
           <Swiper
-            modules={[  Autoplay, EffectCoverflow]}
+            modules={[Autoplay, EffectCoverflow]}
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
@@ -75,8 +75,8 @@ const Swipercoverflow = () => {
               scale: 0.9,
               slideShadows: true,
             }}
-            
-            
+
+
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             loop={true}
             breakpoints={{
@@ -120,6 +120,16 @@ const Swipercoverflow = () => {
 
                 },
               },
+              2560: {
+                slidesPerView: 6,
+                coverflowEffect: {
+                  rotate: 10,
+                  depth: 180,
+                  modifier: 1,
+                  scale: 1,
+                  
+                },
+              },
             }}
             className="skillorea-swiper"
           >
@@ -140,7 +150,7 @@ const Swipercoverflow = () => {
                     src={image.src}
                     alt={image.alt}
                     className="img-fluid skillorea-slide-img  g-3"
-                    style={{ maxHeight: '680px', objectFit: 'cover', width: '100%',  boxShadow: 'none',}}
+                    style={{ maxHeight: '680px', objectFit: 'cover', width: '100%', boxShadow: 'none', }}
                   />
                 </div>
               </SwiperSlide>

@@ -72,6 +72,15 @@
   transition: transform 0.3s ease;
 }
 
+@media (min-width: 2560px) {
+  .skillorea-swiper {
+    padding: 30px 0;
+  }
+  .skillorea-slide-img {
+    max-height: 800px; /* Increase height for ultra-wide screens */
+  }
+}
+
 @media (max-width: 576px) {
   .skillorea-oval-bg, .skillorea-oval-inner {
     min-width: 90vw;

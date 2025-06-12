@@ -179,20 +179,50 @@ const HeroSection = () => {
           <div className="row align-items-end mt-5">
             {/* Social Media Icons */}
             <div
-              className="col-1 position-absolute start-0 translate-middle-y d-flex flex-column align-items-start"
-              style={{ zIndex: 10, backgroundColor: '#3d2e68', width: '40px' }}
+              className="d-flex flex-column align-items-center mt-5 "
+              style={{
+                position: 'fixed',
+                top: '50%',
+                left: '0',
+                transform: 'translateY(-50%)',
+                zIndex: 1000,
+                backgroundColor: '#3d2e68',
+                width: '40px',
+                padding: '10px 0',
+                borderRadius: '0 5px 5px 0',
+              }}
             >
-              <div className="d-flex flex-column gap-2 mt-3">
-                <a href="#" className="text-decoration-none">
+              <div className="d-flex flex-column gap-3">
+                <a
+                  href="https://wa.me/your-number"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
                   <i className="bi bi-whatsapp fs-4" style={{ color: '#25D366' }}></i>
                 </a>
-                <a href="#" className="text-decoration-none">
+                <a
+                  href="https://instagram.com/your-username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
                   <i className="bi bi-instagram fs-4" style={{ color: '#E4405F' }}></i>
                 </a>
-                <a href="#" className="text-decoration-none">
+                <a
+                  href="https://facebook.com/your-page"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
                   <i className="bi bi-facebook fs-4" style={{ color: '#1877F2' }}></i>
                 </a>
-                <a href="#" className="text-decoration-none">
+                <a
+                  href="https://youtube.com/your-channel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                >
                   <i className="bi bi-youtube fs-4" style={{ color: '#FF0000' }}></i>
                 </a>
               </div>
@@ -213,10 +243,10 @@ const HeroSection = () => {
                   <button className="download-btn">Download</button>
                   <button className="call-btn">Call 24x7</button>
                 </div>
-                <div className="col-7 col-md-6 text-center text-md-start ms-4 mt-2 mt-md-0">
+                <div className="col-7 col-md-6 text-center text-md-center mt-2 mt-md-0">
                   <a
                     href="tel:+919940506090"
-                    className="text-white text-decoration-none d-flex align-items-center justify-content-center justify-content-md-start"
+                    className="text-white text-decoration-none d-flex align-items-center justify-content-center justify-content-md-center text-center"
                   >
                     +91 9940506090
                   </a>
