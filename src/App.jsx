@@ -10,13 +10,13 @@ function App() {
 
   return (
     <Router>
-      
-        <div className="p-0 m-0">
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </div>
-      
+
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+
+
     </Router>
   );
 }

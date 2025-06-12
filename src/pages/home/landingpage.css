@@ -376,9 +376,10 @@ body {
 @media (max-width: 320px) {
 
    .footerbgimg{
-    min-height: 55%;
+    min-height: 100%;
   }
 }
+
 
 
 

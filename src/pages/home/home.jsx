@@ -361,7 +361,7 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-               
+
             </section>
 
             <Skillslider />
@@ -369,58 +369,12 @@ const LandingPage = () => {
             <Swipercoverflow />
 
             {/* Footer Content */}
-            <div
-                className="position-relative text-white pt-5 mt-5 mb-0 footerbgimg"
-                style={{
-                    overflow: 'hidden',
-                    backgroundImage: `url(${bluebg})`,
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    minHeight: '360px',
-                    maxHeight: '500px' // Add this
-                }}
-            >
-                {/* Optional overlay for better text visibility */}
+            <footer className="bg-dark text-white py-5 mx-4 px-2 py-sm-3 mx-sm-4 px-sm-0 px-lg-4 mx-lg-4" role="contentinfo">
 
-                {/* Footer Content */}
-                <div className="container position-relative mt-lg-5 pt-4 mb-lg-3 " style={{ zIndex: 1 }}>
-                    {/* Row 1: Centered Image */}
-                    <div className="row mb-0">
-                        <div className="col-12 text-center mt-5 px-4">
-                            <img
-                                src={skillorea}
-                                alt="Logo"
-                                loading="lazy"
-                                className="img-fluid"
-                                style={{
-                                    maxWidth: '250px',
-                                    height: 'auto',
-                                    objectFit: 'contain',
-                                    marginBottom: '1rem',
-                                }}
-                            />
-                        </div>
-                    </div>
+             
 
-                    {/* Row 2: Navigation Links */}
-                    <div className="row mb-3">
-                        <div className="col-12 d-flex justify-content-center gap-4 flex-wrap">
-                            <a href="#about" className="text-decoration-none text-light small">About Us</a>
-                            <a href="#wellness" className="text-decoration-none text-light small">Wellness</a>
-                            <a href="#shop" className="text-decoration-none text-light small">Shop</a>
-                            <a href="#contact" className="text-decoration-none text-light small">Contact Us</a>
-                        </div>
-                    </div>
-
-                    {/* Row 3: Copyright */}
-                    <div className="row">
-                        <div className="col-12 text-center">
-                            <small className="text-light">© 2025 All rights reserved.</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+            </footer>
 
 
 
