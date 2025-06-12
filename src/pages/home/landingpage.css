@@ -87,6 +87,49 @@ body {
 }
 
 
+
+
+/* Responsive adjustments for 2560px */
+@media (min-width: 2560px) {
+  .hero-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .navbar-brand img {
+    max-width: 300px;
+  }
+
+  .trackyour h2 {
+    font-size: 3.5rem;
+  }
+
+  .trackyour p {
+    font-size: 1.75rem;
+  }
+
+  .store-img {
+    max-width: 400px;
+  }
+
+  .container {
+    max-width: 2800px; /* Limit container width for ultra-wide displays */
+  }
+  .cartoon-image-container {
+    height: 600px;
+  }
+
+  .cartoon-image {
+    width: 140px;
+  }
+
+  .cartoon-swiper .swiper-slide-active .cartoon-image {
+    transform: scale(1.8);
+  }
+}
+
+
+
 /* Social Media Bar */
 .social-media-bar {
   z-index: 10;
@@ -991,7 +1034,7 @@ li {
   }
 
   .card-title {
-    width: 40% !important;
+    width: 35% !important;
 
   }
 
@@ -1004,5 +1047,9 @@ li {
 
   .header-text h1 {
     font-size: 18px !important;
+  }
+   .card-title {
+    width: 35% !important;
+
   }
 }

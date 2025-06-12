@@ -42,7 +42,7 @@ const Cartoon = () => {
         }}
         loop={true}
         speed={600}
-        
+
         breakpoints={{
           0: { slidesPerView: 1, spaceBetween: 10 },
           576: { slidesPerView: 2, spaceBetween: 15 },
@@ -52,12 +52,12 @@ const Cartoon = () => {
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx}>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center cartoon-image-container">
               <img
                 src={img.src}
                 alt={`leader-${idx}`}
                 className="img-fluid rounded cartoon-image"
-                style={{ objectFit: 'cover', width: '60px', Height: '200px' }}
+                style={{ objectFit: 'cover', width: '60px', Height: '300px' }}
               />
             </div>
           </SwiperSlide>
@@ -75,10 +75,15 @@ const Cartoon = () => {
           transition: transform 0.3s ease;
         }
         .swiper-slide-active .cartoon-image {
-          transform: scale(1.0);
+          transform: scale(1.4);
           z-index: 14;
           maxheight: 100%; !important
         }
+          .cartoon-image-container {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
       `}
       </style>
     </div>

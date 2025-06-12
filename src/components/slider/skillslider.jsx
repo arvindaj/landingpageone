@@ -166,7 +166,7 @@ const Skillsliders = () => {
                         </div>
                         <div className="card-title-container d-flex justify-content-center ">
                           <h5
-                            className="card-title text-white px-3  rounded fw-bold mb-0"
+                            className="card-title text-white px-3 p-1 rounded fw-bold mb-0"
                             style={{
                               backgroundColor: "#1e3a8a",
                               fontSize: "12px",
