@@ -119,14 +119,14 @@ const Swipercoverflow = () => {
                   scale: 0.83,
 
                 },
-              },2560: {
+              },
+              2560: {
                 slidesPerView: 6,
                 coverflowEffect: {
                   rotate: 10,
-                  depth: 80,
+                  depth: 60,
                   modifier: 1,
                   scale: 1,
-                  
                 },
               },
               
