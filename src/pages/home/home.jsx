@@ -7,23 +7,18 @@ import leader7 from "../../assets/img/leader7.png";
 import leader8 from "../../assets/img/leader8.png";
 import doublearrow from "../../assets/img/doublearrow.png";
 import bluebg from "../../assets/img/bluebg.png";
-import "./landingpage.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import worshop from "../../assets/img/worshop.png"
 import quizzer from "../../assets/img/quizzer.png"
 import entainment from "../../assets/img/entainment.png"
 import infography from "../../assets/img/infography.png"
 import point from "../../assets/img/point.png"
-import SwiperCoverflow from '../../components/swipercoverflow';
-
-import "swiper/css/autoplay";
-import Skillsliders from '../../components/slider/skillslider';
 import HeroSection from '../../components/hero/hero';
 import Skillslider from '../../components/slider/skillslider';
-
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import "swiper/css/autoplay";
+import "./landingpage.css";
+import Swipercoverflow from '../../components/slider/swipercoverflow';
 
 
 const LandingPage = () => {
@@ -366,86 +361,12 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Custom CSS for additional responsive behavior */}
-                <style jsx>{`
-        @media (max-width: 1200px) {
-            .feature-item {
-                margin-bottom: 1.5rem !important;
-            }
-        }
-
-        @media (max-width: 992px) {
-            #features {
-                padding: 30px 0 !important;
-            }
-            .feature-item {
-                margin-bottom: 2rem !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            #features {
-                padding: 25px 0 !important;
-            }
-            .container {
-                padding: 0 20px;
-            }
-            .feature-item {
-                margin-bottom: 1.5rem !important;
-                border-radius: 12px !important;
-            }
-        }
-
-        @media (max-width: 576px) {
-            #features {
-                padding: 20px 0 !important;
-            }
-            .container {
-                padding: 0 15px;
-            }
-            .feature-item {
-                margin-bottom: 1.25rem !important;
-                border-radius: 10px !important;
-            }
-            .row.g-5 {
-                gap: 2rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-            .feature-item {
-                padding: 12px !important;
-            }
-        }
-
-        /* Smooth transitions for responsive changes */
-        .feature-item,
-        .feature-icon,
-        h5,
-        p,
-        li {
-            transition: all 0.3s ease;
-        }
-
-        /* Touch-friendly hover states for mobile */
-        @media (hover: none) and (pointer: coarse) {
-            .feature-item:active {
-                transform: scale(0.98);
-                transition: transform 0.1s ease;
-            }
-        }
-                 `}</style>
-
+               
             </section>
 
             <Skillslider />
 
-            <SwiperCoverflow />
-
+            <Swipercoverflow />
 
             {/* Footer Content */}
             <div

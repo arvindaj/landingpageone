@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import screenone from "../assets/img/screen1.png";
-import screentwo from "../assets/img/screen2.png";
-import screenthree from "../assets/img/screen3.png";
-import screenfive from "../assets/img/screen4.png";
-import appstore from "../assets/img/appstore.png";
-import playstore from "../assets/img/playstore.png";
-import gotolive from "../assets/img/gotolive.png";
+import screenone from "../../assets/img/screen1.png";
+import screentwo from "../../assets/img/screen2.png";
+import screenthree from "../../assets/img/screen3.png";
+import screenfive from "../../assets/img/screen4.png";
+import appstore from "../../assets/img/appstore.png";
+import playstore from "../../assets/img/playstore.png";
+import gotolive from "../../assets/img/gotolive.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
-import './slider/swiper.css';
+import '../slider/swiper.css';
 
 const images = [
   { id: 1, src: screenone, alt: "Mountain View" },
@@ -26,7 +26,7 @@ const images = [
   { id: 4, src: screenfive, alt: "Desert Landscape" },
 ];
 
-const ImageSlider = () => {
+const Swipercoverflow = () => {
   return (
     <div className="skillorea-slider-container py-5 px-5">
       <div className="row justify-content-center">
@@ -155,4 +155,4 @@ const ImageSlider = () => {
   );
 };
 
-export default ImageSlider;
+export default Swipercoverflow;

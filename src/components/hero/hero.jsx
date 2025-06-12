@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-
 import skillorea from '../../assets/img/skillorealogowhite.png';
 import one from '../../assets/img/one.png';
 import appstore from '../../assets/img/appstore.png';
@@ -9,7 +8,8 @@ import playstore from '../../assets/img/playstore.png';
 import gotolive from '../../assets/img/gotolive.png';
 import 'swiper/css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import BootstrapFourCardCarousel from '../cartoon';
+import Cartoon from '../slider/cartoon';
+
 
 const slideData = [
   { title: 'Track Your Progress', text: 'Monitor your learning journey with ease.' },
@@ -147,64 +147,6 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Inline Styles */}
-            <style jsx>{`
-              .vertically {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-              }
-              @media (max-width: 768px) {
-                .vertically {
-                  flex-direction: column;
-                  align-items: start;
-                  text-align: start;
-                }
-                .vertically h5,
-                .vertically h1 {
-                  margin-left: 50px !important;
-                  margin-right: 0 !important;
-                }
-                .logo-img {
-                  max-width: 80px !important;
-                }
-                .header-text h5 {
-                  font-size: 22px !important;
-                }
-                .header-text h1 {
-                  font-size: 38px !important;
-                }
-              }
-              @media (max-width: 576px) {
-                .vertically {
-                  flex-direction: column;
-                  align-items: start;
-                  text-align: start;
-                }
-                .vertically h5,
-                .vertically h1 {
-                  margin-left: 20px !important;
-                  margin-right: 0 !important;
-                }
-                .logo-img {
-                  max-width: 40px !important;
-                }
-                .header-text h5 {
-                  font-size: 10px !important;
-                }
-                .header-text h1 {
-                  font-size: 18px !important;
-                }
-              }
-              @media (max-width: 320px) {
-                .header-text h5 {
-                  font-size: 10px !important;
-                }
-                .header-text h1 {
-                  font-size: 18px !important;
-                }
-              }
-            `}</style>
 
             {/* Swiper Slider */}
             <div className="container-fluid px-4 px-lg-5 py-md-4">
@@ -258,7 +200,7 @@ const HeroSection = () => {
 
             {/* Image Slider */}
             <div className="col-4 col-lg-4 d-flex flex-column flex-sm-row justify-content-start justify-content-sm-start ms-3 ms-lg-0">
-              <BootstrapFourCardCarousel />
+              <Cartoon />
             </div>
 
             {/* Description + Buttons */}

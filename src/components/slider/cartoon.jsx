@@ -4,10 +4,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import cartoonone from "../assets/img/leader5.png";
-import leader6 from "../assets/img/leader6.png";
-import leader7 from "../assets/img/leader7.png";
-import leader8 from "../assets/img/leader8.png";
+import cartoonone from "../../assets/img/leader5.png";
+import leader6 from "../../assets/img/leader6.png";
+import leader7 from "../../assets/img/leader7.png";
+import leader8 from "../../assets/img/leader8.png";
+
+
 
 const images = [
   { id: 5, src: cartoonone, alt: 'Leader 5' },
@@ -20,7 +22,7 @@ const images = [
   { id: 8, src: leader8, alt: 'Leader 8' },
 ];
 
-const BootstrapFourCardCarousel = () => {
+const Cartoon = () => {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
@@ -83,4 +85,4 @@ const BootstrapFourCardCarousel = () => {
   );
 };
 
-export default BootstrapFourCardCarousel;
+export default Cartoon;
