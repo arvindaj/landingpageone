@@ -66,7 +66,7 @@ const Swipercoverflow = () => {
             effect="coverflow"
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={2}
+            slidesPerView={1}
             coverflowEffect={{
               rotate: 50,
               stretch: 0,
@@ -81,12 +81,12 @@ const Swipercoverflow = () => {
             loop={true}
             breakpoints={{
               576: {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 coverflowEffect: {
                   rotate: 40,
                   depth: 50,
                   modifier: 1,
-                  scale: 0.5,
+                  scale: 0.6,
                   slideShadows: true,
                 },
               },
